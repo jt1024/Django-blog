@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^login/$', LoginView.as_view(template_name="account/login.html"), name="user_login"),
     # url(r'^logout/$', LogoutView.as_view(), name="user_logout"),
     url(r'^logout/$', LogoutView.as_view(template_name="account/logout.html"), name="user_logout"),
+    url(r'^register/$', views.user_register, name="user_register"),
 
 ]
