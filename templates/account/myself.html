@@ -69,4 +69,18 @@
 
 
 </div>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/layer.js' %}"></script>
+<script type="text/javascript">
+    function upload_image_layer(){
+        layer.open({
+            title:"上传头像",
+            area:['650px','600px'],
+            type:2,
+            content:"{% url 'account:my_image' %}",
+        });
+    }
+
+
+</script>
 {% endblock %}
