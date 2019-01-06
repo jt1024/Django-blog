@@ -31,20 +31,23 @@
             </div>
             <div class="row">
                 <div class="col-md-4 text-right"><span>工作单位：</span></div>
-                <div class="col-md-8 text-left">{{userinfo.email}}</div>
+                <div class="col-md-8 text-left">{{userinfo.company}}</div>
             </div>
             <div class="row">
                 <div class="col-md-4 text-right"><span>职业：</span></div>
-                <div class="col-md-8 text-left">{{userinfo.email}}</div>
+                <div class="col-md-8 text-left">{{userinfo.profession}}</div>
             </div>
             <div class="row">
                 <div class="col-md-4 text-right"><span>地址：</span></div>
-                <div class="col-md-8 text-left">{{userinfo.email}}</div>
+                <div class="col-md-8 text-left">{{userinfo.address}}</div>
             </div>
             <div class="row">
                 <div class="col-md-4 text-right"><span>个人介绍：</span></div>
-                <div class="col-md-8 text-left">{{userinfo.email}}</div>
+                <div class="col-md-8 text-left">{{userinfo.aboutme}}</div>
             </div>
+            <a href="{% url 'account:edit_my_information' %}">
+                <button class="btn btn-primary btn-lg">Edit My Information</button>
+            </a>
         </div>
         <div class="col-md-6">
             <p>picture</p>
