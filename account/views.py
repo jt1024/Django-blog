@@ -36,6 +36,7 @@ def user_register(request):
             new_profile = userprofile_form.save(commit=False)
             new_profile.user = new_user
             new_profile.save()
+            UserInfo.objects.create(user=new_user)
             return HttpResponse("Successfully")
         else:
             return HttpResponse("Sorry, you can not register.")
@@ -43,3 +44,17 @@ def user_register(request):
         user_form = RegistrationForm()
         new_profile = UserProfileForm()
         return render(request, "account/register.html", {"form": user_form, "profile": new_profile})
+
+
+from django.contrib.auth.decorators import login_required
+from .models import UserInfo, UserProfile
+from django.contrib.auth.models import User
+
+
+@login_required(login_url='/account/login/')
+def myself(requeset):
+    user = User.objects.get(username=requeset.user.username)
+    userprofile = UserProfile.objects.get(user=user)
+    userinfo = UserInfo.objects.get(user=user)
+
+    return render(requeset, "account/myself.html", {"user": user, "userinf": userinfo, "userprofile": userprofile})
