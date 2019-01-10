@@ -50,6 +50,7 @@ function publish_article(){
         success: function(e){
             if(e=="1"){
                 layer.msg("successful");
+                location.href = "{% url 'article:article_list' %}";
             }else if(e=="2"){
                 layer.msg("sorry.");
             }else{
@@ -67,6 +68,7 @@ $(function(){
         path:"{% static 'editor/lib/' %}"
     });
 });
+
 
 </script>
 {% endblock %}
