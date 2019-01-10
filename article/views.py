@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 
 from .models import ArticleColumn, ArticlePost
 from .forms import ArticleColumnForm, ArticlePostForm
@@ -85,3 +86,7 @@ def article_list(request):
     return render(request, "article/column/article_list.html", {"articles": articles})
 
 
+@login_required(login_url="/account/login")
+def article_detail(request, id, slug):
+    article = get_object_or_404(ArticlePost, id=id, slug=slug)
+    return render(request, "article/column/article_detail.html", {"article": article})

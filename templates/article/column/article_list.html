@@ -13,7 +13,7 @@
         {% for article in articles %}
         <tr id="{{article.id}}">
             <td>{{ forloop.counter }}</td>
-            <td>{{ article.title }}</td>
+            <td><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></td>
             <td>{{ article.column }}</td>
             <td>
                 <a name="edit" href="javascript:" onclick="edit_article(this,{{article.id}})">
@@ -32,7 +32,6 @@
 <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/layer.js' %}"></script>
 <script type="text/javascript">
-
 
 
 </script>
