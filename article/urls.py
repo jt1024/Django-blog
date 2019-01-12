@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from . import views
+from . import views, list_views
 
 app_name = 'article'  # 一定要写这一行，否则会报错 'article' is not a registered namespace
 
@@ -12,4 +12,6 @@ urlpatterns = [
     url(r'^article-detail/(?P<id>\d+)/(?P<slug>[-\w]+)/$', views.article_detail, name='article_detail'),
     url(r'^del-article/$', views.del_article, name='del_article'),
     url(r'^edit-article/(?P<article_id>\d+)/$', views.edit_article, name='edit_article'),
+    url(r'^list-article-titles/$', list_views.article_titles, name='list_article_titles'),
+    url(r'^list-article-detail/(?P<id>\d+)/(?P<slug>[-\w]+)$', list_views.article_detail, name='list_article_detail'),
 ]

@@ -1,11 +1,11 @@
 {% extends "article/base.html" %}
 {% load staticfiles %}
-{% block title %}articles list {% endblock %}
+{% block title %}articles list{% endblock %}
 {% block content %}
 <div class="container">
     <header>
         <h1>{{ article.title }}</h1>
-        <p>{{ user.username }}</p>
+        <p>{{ article.author.username }}</p>
     </header>
     <link rel="stylesheet" href="{% static 'editor/css/editormd.preview.css' %}"/>
     <div id="editormd-view">
