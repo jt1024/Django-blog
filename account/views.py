@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegistrationForm, UserProfileForm
+from django.urls import reverse
 
 
 # Create your views here.
@@ -37,7 +38,8 @@ def user_register(request):
             new_profile.user = new_user
             new_profile.save()
             UserInfo.objects.create(user=new_user)
-            return HttpResponse("Successfully")
+            # return HttpResponse("Successfully")
+            return HttpResponseRedirect(reverse("account:user_login"))
         else:
             return HttpResponse("Sorry, you can not register.")
     else:
