@@ -16,7 +16,7 @@
             <tr>
                 <td>{{forloop.counter}}</td>
                 <td>{{image.title}}</td>
-                <td>{{image.image}}</td>
+                <td><img src="{{image.image.url}}" width="100px" height="100px"></td>
                 <td><a name="delete" href="javascript:" onclick="del_image(this,{{image.id}})"><span
                         class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
