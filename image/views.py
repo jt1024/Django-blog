@@ -36,6 +36,11 @@ def del_image(request):
     try:
         image = Image.objects.get(id=image_id)
         image.delete()
-        return JsonResponse({'status':"1"})
+        return JsonResponse({'status': "1"})
     except:
         return JsonResponse({'status': "2"})
+
+
+def falls_images(request):
+    images = Image.objects.all()
+    return render(request, 'image/falls_images.html', {"images": images})
